@@ -65,9 +65,6 @@ Parameters:
   VpcId:
     AssociationProperty: ALIYUN::ECS::VPC::VPCId
     Type: String
-    Description:
-      en: Please search the ID starting with (vpc-xxx) from console-Virtual Private Cloud
-      zh-cn: 现有虚拟专有网络的实例ID
     Label:
       en: VPC ID
       zh-cn: 专有网络VPC实例ID
@@ -77,9 +74,6 @@ Parameters:
       VpcId: ${VpcId}
       ZoneId: ${ZoneId}
     Type: String
-    Description:
-      en: Instance ID of existing business network switches, console-Virtual Private Cloud-VSwitches under query
-      zh-cn: 现有业务网络交换机的实例ID
     Label:
       en: VSwitch ID
       zh-cn: 交换机实例ID
@@ -90,17 +84,31 @@ Parameters:
       zh-cn: 实例类型
     AssociationProperty: ALIYUN::ECS::Instance::InstanceType
     AssociationPropertyMetadata:
-      ZoneId: ${ZoneId}
-      InstanceChargeType: ${InstanceChargeType}
+      InstanceChargeType: ${PayType}
+      Constraints:
+        InstanceTypeFamily:
+          - ecs.u1
+          - ecs.e
     AllowedValues:
-      - ecs.g6.large
-      - ecs.g6.xlarge
-      - ecs.g6.2xlarge
-      - ecs.g6.4xlarge
-      - ecs.g7.large
-      - ecs.g7.xlarge
-      - ecs.g7.2xlarge
-      - ecs.g7.4xlarge
+      - ecs.u1-c1m2.xlarge
+      - ecs.u1-c1m4.xlarge
+      - ecs.u1-c1m8.xlarge
+      - ecs.u1-c1m1.2xlarge
+      - ecs.u1-c1m2.2xlarge
+      - ecs.u1-c1m4.2xlarge
+      - ecs.u1-c1m8.2xlarge
+      - ecs.u1-c1m1.3xlarge
+      - ecs.u1-c1m2.3xlarge
+      - ecs.u1-c1m4.3xlarge
+      - ecs.u1-c1m8.3xlarge
+      - ecs.u1-c1m1.4xlarge
+      - ecs.u1-c1m2.4xlarge
+      - ecs.u1-c1m4.4xlarge
+      - ecs.u1-c1m8.4xlarge
+      - ecs.u1-c1m1.8xlarge
+      - ecs.u1-c1m2.8xlarge
+      - ecs.u1-c1m4.8xlarge
+      - ecs.u1-c1m8.8xlarge
   SystemDiskSize:
     Default: 40
     Type: Number
@@ -113,7 +121,7 @@ Parameters:
       zh-cn: 系统盘空间
       en: System Disk Space
   InternetMaxBandwidthOut:
-    Default: 10
+    Default: 2
     Type: Number
     Label:
       zh-cn: 流量公网带宽
