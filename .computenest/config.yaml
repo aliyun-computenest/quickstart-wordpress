@@ -47,13 +47,13 @@ ImageBuilder:
     Tags: []
     CommandContent: |-
       #!/bin/bash
-      ARGUS_VERSION=3.5.7 /bin/bash -c "$(curl -sS https://cms-agent-ap-southeast-1.oss-ap-southeast-1-internal.aliyuncs.com/Argus/agent_install_ecs-1.7.sh)" 2>&1
+      ARGUS_VERSION=3.5.7 /bin/bash -c "$(curl -sS https://cms-agent-us-east-1.oss-us-east-1-internal.aliyuncs.com/Argus/agent_install_ecs-1.7.sh)" 2>&1
       yum check-update
       yum -y upgrade --security
       yum -y upgrade-minimal
       yum install -y git
       # 下载包 例子是从git获取
-      git clone https://github.com/hanans426/quickstart-wordpress.git
+      git clone https://github.com/aliyun-computenest/quickstart-wordpress.git
       cp /root/quickstart-wordpress/.computenest/resources/artifact_resources/file/* /root/
     
       # 安装环境
